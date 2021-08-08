@@ -1,12 +1,7 @@
-#include "mqtt/async_client.h"
-
 #include<vector>
 #include<string>
 #include<chrono>
 #include<set>
-#include<ev.h>
-#include<tinyxml.h>
-#include<thread>
 #include"msgengine.h"
 #include"msgpump.h"
 #include"msgpumpconf.h"
@@ -45,17 +40,8 @@ int main( void )
     }
     
    msg_pump.stop();
-//     #endif
 
-    
-    
-    
 
-   
-
- 
-    
-    
 #else
 
     

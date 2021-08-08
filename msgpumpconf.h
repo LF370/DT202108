@@ -1,3 +1,13 @@
+/*
+    通过外部xml 文件：msgpumpconfig.xml 获取
+    消息泵，消息引擎的配置参数
+    消息引擎参数：
+    服务器地址
+    端口号
+    用户名和密码
+    消息泵参数：
+    所有主题+定时
+*/
 #pragma once
 #include<iostream>
 #include<vector>
