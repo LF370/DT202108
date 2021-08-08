@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MsgPump>
+    <broker>
+        <ip>172.20.137.113</ip>
+        <port>1883</port>
+        <user>lifei</user>
+        <pwd>lifei</pwd>
+    </broker>
+    <channel>        
+        <topic>getRTG-STATUS</topic>
+        <reptm>1</reptm>        
+    </channel>
+    <channel>
+        <topic>getQC-STATUS</topic>
+        <reptm>2</reptm>        
+    </channel>
+    <channel>        
+        <topic>getCNR-STATUS</topic>
+        <reptm>5</reptm>        
+    </channel>
+    
+</MsgPump>
