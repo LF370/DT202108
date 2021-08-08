@@ -25,18 +25,15 @@ int main( void )
    {
        cout <<"初始化消息泵配置文件...OK"<<endl;
    }
-
-
-   vector<MsgEngine> msg_engines;
-   auto broker = g_msgpump_conf.getBrokerConf();
+   
 #if 1
      MsgPump msg_pump;
 
-    if( msg_pump.assemblyMsgEngine() )
+    int engine_sz = msg_pump.assemblyMsgEngine();
+    if( engine_sz > 0 )
     {
-        cout <<"Message engine assembly sucessfull.....";
+        cout <<"There are "<<engine_sz<<" engines assemblied.....OK" << endl;
         msg_pump.start();
-
     }
     
    msg_pump.stop();

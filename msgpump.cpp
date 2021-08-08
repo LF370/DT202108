@@ -34,25 +34,18 @@ int MsgPump::assemblyMsgEngine( )
     int success = 0;
     // 通过配置文件获取服务地址，IP 密码等
     // 以及配套的主题
-    // 这里先简单设定固定值
-
-    auto broker_map = g_msgpump_conf.getBrokerConf();
-    auto channel_map = g_msgpump_conf.getChannelConf();
-    
-    string broke_ip = broker_map["ip"];
-    string broke_port = broker_map["port"];
-    string username = broker_map["user"];
-    string pwd = broker_map["pwd"];
-    
+    // 这里先简单设定固定值   
+    auto channel_map = g_msgpump_conf.getChannelConf();      
 
     //组装引擎    
-    cout <<"Channel size:" << m_msg_engines.size() <<endl;
-    for( auto itr = channel_map.begin(); itr != channel_map.end(); ++itr )
-    {
-        auto engine = MsgEngine(broke_ip, broke_port, username, pwd);
-        engine.setTopic( itr->first );        
-        m_msg_engines.push_back( engine );        
-        cout <<"create engine:"<<" "<<itr->first<<" tm:"<<itr->second<<endl;
+    
+    // 每个频道一个引擎
+    m_msg_engines.resize( channel_map.size() );
+    int i =0;
+    for( auto itr = channel_map.begin(); itr != channel_map.end(); ++itr, i++ )
+    {        
+        m_msg_engines[i].setTopic( itr->first );                 
+        
     }
     // 完成引擎连接
     for( int i = 0; i < m_msg_engines.size(); i++ )
@@ -66,8 +59,7 @@ int MsgPump::assemblyMsgEngine( )
             success++;
         }
     }
-
-    cout <<"had assmblied "<< success <<" successfuly...." <<endl;
+   
     return success;
     
 }

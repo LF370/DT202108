@@ -2,7 +2,7 @@
 #include<iostream>
 #include<vector>
 #include "mqtt/async_client.h"
-
+#include "msgpumpconf.h"
 using namespace std;
 class callback: public virtual mqtt::callback
 {
@@ -25,8 +25,9 @@ class MsgEngine
 {
 
 public:
-    MsgEngine( string _server_address, string _port, string _user, string _pwd );
-     ~MsgEngine();
+    //MsgEngine( string _server_address, string _port, string _user, string _pwd );
+    MsgEngine();
+    ~MsgEngine();
 
     // 初始化信息发布客户端
     void init();
