@@ -1,3 +1,6 @@
+/*
+    消息泵，按照设定的时序完成信息的发布
+*/
 #pragma once
 #include<vector>
 #include<iostream>
@@ -32,7 +35,6 @@ protected:
 
     // 定时回调函数
     static void pump_cb(EV_P_ ev_timer* w, int revents);
-    
     
     protected:
     EV_P;
